@@ -17,3 +17,16 @@ lex.yy.o is the object file for the lex.yy.c source
 
 Source: 80% of the code came from https://github.com/jengelsma/yacc-tutorial  I only done some modification to the code.
 
+some commands to use this program:
+
+a = 5 + 2; 
+b = 5 - 2;
+c = 5 * 2;
+d = 5 / 2;
+print a;
+print b;
+print c;
+print d;
+printBinary 1011;
+
+
