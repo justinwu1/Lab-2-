@@ -10,5 +10,10 @@ cc y.tab.c lex.yy.c -o calc
 
 y.tab.o is the object file for the y.tab.c source
 lex.yy.o is the object file for the lex.yy.c source
+
 4.Run calc program
 ./calc
+
+
+Source: 80% of the code came from https://github.com/jengelsma/yacc-tutorial  I only done some modification to the code.
+
