@@ -8,6 +8,7 @@ int symbols[0];
 int symbolVal(char symbol);
 int convert(long long n);
 int power(int x, unsigned int y);
+int isPrime(int x);
 void updateSymbolVal(char symbol, int val);
 %}
 
@@ -16,6 +17,7 @@ void updateSymbolVal(char symbol, int val);
 %token print
 %token exit_command
 %token printBinary
+%token CheckPrimeNumber
 %token <num> number
 %token <id> identifier
 %type <num> line exp term 
@@ -29,10 +31,12 @@ line    : assignment ';'		{;}
 		| exit_command ';'		{exit(EXIT_SUCCESS);}
 		| print exp ';'			{printf("Printing %d\n", $2);}
 		| printBinary exp ';'   {printf("printing %d\n",convert($2));}
+		| CheckPrimeNumber exp ';'   {printf("%d\n",isPrime($2));}
 		| line assignment ';'	{;}
 		| line print exp ';'	{printf("Printing %d\n", $3);}
 		| line exit_command ';'	{exit(EXIT_SUCCESS);}
 		| line printBinary exp ';' {printf("printing %d\n",convert($3));}
+		| line CheckPrimeNumber exp ';' {printf("%d\n",isPrime($3));}
         ;
 
 assignment : identifier '=' exp  { updateSymbolVal($1,$3); }
@@ -70,6 +74,27 @@ int convert(long long n) {
         ++i;
     }
     return dec;
+}
+int isPrime(int n){
+  int i, flag = 0;
+  for (i = 2; i <= n / 2; ++i) {
+    // condition for non-prime
+    if (n % i == 0) {
+      flag = 1;
+      break;
+    }
+  }
+
+  if (n == 1) {
+    printf("1 is neither prime nor composite.");
+  } 
+  else {
+    if (flag == 0)
+      printf("%d is a prime number.", n);
+    else
+      printf("%d is not a prime number.", n);
+  }
+  return n;
 }
 int computeSymbolIndex(char token)
 {

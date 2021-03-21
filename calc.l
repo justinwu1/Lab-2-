@@ -7,6 +7,7 @@ int yylex();
 "print"				   {return print;}
 "exit"				   {return exit_command;}
 "printBinary"          {return printBinary;}
+"CheckPrimeNumber"     {return CheckPrimeNumber;}
 [a-zA-Z]			   {yylval.id = yytext[0]; return identifier;}
 [0-9]+                 {yylval.num = atoi(yytext); return number;}
 [ \t\n]                ;
