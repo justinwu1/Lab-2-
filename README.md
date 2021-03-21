@@ -6,6 +6,7 @@ yacc -d calc.y
 lex calc.l
 
 3.Compile and link the two C source code files, output name using -o flag; name it calc this command will create y.tab.o, lex.yy.o, calc
+
 cc y.tab.c lex.yy.c -o calc
 
 y.tab.o is the object file for the y.tab.c source
@@ -28,5 +29,9 @@ print b;
 print c;
 print d;
 printBinary 1011;
+
+Addtional Feature: I added a feature to the program, it  will check if a number is a prime number.
+CheckPrimeNumber 50; // No!
+CheckPrimeNumber 47; // Yes!
 
 
